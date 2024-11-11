@@ -1,7 +1,6 @@
 package com.meshal.credditbackend.controllers;
 
 import com.meshal.credditbackend.models.Post;
-import com.meshal.credditbackend.models.PostResponse;
 import com.meshal.credditbackend.models.StatusMessage;
 import com.meshal.credditbackend.services.PostsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +42,7 @@ public class PostsController {
         if (post == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new StatusMessage("Post with ID " + id + " not found"));
         }
-        return ResponseEntity.ok(new PostResponse(post));
+        return ResponseEntity.ok(post);
     }
 
     @DeleteMapping("/posts/{id}")
